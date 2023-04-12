@@ -1,14 +1,81 @@
+<!DOCTYPE html>
 <html>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<head>
+	<title>H3X Website</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		.header {
+			background-color: #333;
+			color: #fff;
+			text-align: center;
+			padding: 10px;
+			font-size: 30px;
+		}
+		.tab {
+			background-color: #ccc;
+			display: inline-block;
+			padding: 10px;
+			margin: 10px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+		.tab:hover {
+			background-color: #aaa;
+			color: #fff;
+		}
+		.active-tab {
+			background-color: #aaa;
+			color: #fff;
+		}
+		.tab-content {
+			display: none;
+			padding: 20px;
+		}
+		.active-tab-content {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">H3X</header>
+
+	<div class="tab" onclick="openTab(event, 'my-code')">My Code</div>
+	<div class="tab" onclick="openTab(event, 'my-github')">My Github</div>
+	<div class="tab" onclick="openTab(event, 'contact-me')">Contact Me</div>
+
+	<div id="my-code" class="tab-content active-tab-content">
+		<h2>My Code</h2>
+		<p>Here you can find all of my code projects.</p>
+	</div>
+
+	<div id="my-github" class="tab-content">
+		<h2>My Github</h2>
+		<p>Check out my Github profile and repositories.</p>
+	</div>
+
+	<div id="contact-me" class="tab-content">
+		<h2>Contact Me</h2>
+		<p>Send me a message and I will get back to you soon.</p>
+	</div>
+
+	<script>
+		function openTab(evt, tabName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tab-content");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tab");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active-tab", "");
+			}
+			document.getElementById(tabName).style.display = "block";
+			evt.currentTarget.className += " active-tab";
+		}
+	</script>
+</body>
 </html>
